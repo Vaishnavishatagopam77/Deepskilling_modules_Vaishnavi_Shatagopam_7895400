@@ -1,0 +1,65 @@
+JPA (Java Persistence API)
+
+Define: JPA (Java Persistence API) is a Java specification that provides a standard way to map Java objects to database tables and perform database operations such as Create, Read, Update, and Delete (CRUD).
+Key Points
+JPA stands for Java Persistence API.
+It is a specification, not a framework.
+It provides a standard way to interact with relational databases.
+It maps Java objects (classes) to database tables.
+It reduces the need to write SQL queries manually.
+It uses annotations like @Entity, @Table, @Id, and @Column.
+Syntax:
+@Entity
+@Table(name="country")
+public class Country {
+
+    @Id
+    private String code;
+
+    private String name;
+}
+
+
+
+Hibernate
+Define: Hibernate is an Object-Relational Mapping (ORM) framework that implements the JPA specification. It maps Java objects to database tables and simplifies database operations without writing much SQL.
+Key Points
+Hibernate is an ORM (Object-Relational Mapping) framework.
+It is an implementation of JPA.
+It maps Java classes to database tables automatically.
+It reduces the need to write SQL queries.
+It supports CRUD (Create, Read, Update, Delete) operations.
+It uses annotations like @Entity, @Table, @Id, and @Column.
+Syntax
+@Entity
+@Table(name = "country")
+public class Country {
+
+    @Id
+    private String code;
+
+    private String name;
+}
+
+
+Spring Data JPA
+Define: Spring Data JPA is a Spring Framework module built on top of JPA. It simplifies database operations by providing ready-made repository interfaces, reducing the amount of code developers need to write.
+Key Points
+Spring Data JPA is a module of the Spring Framework.
+It is built on top of JPA.
+It simplifies database access by reducing boilerplate code.
+It provides built-in repository interfaces such as JpaRepository and CrudRepository.
+It automatically implements common CRUD operations.
+It supports query methods like findByName(), findById(), and findAll().
+It works with JPA providers such as Hibernate.
+Syntax:
+public interface CountryRepository extends JpaRepository<Country, String> {
+
+}
+Using the repository:
+countryRepository.findAll();
+countryRepository.findById("IN");
+countryRepository.save(country);
+countryRepository.deleteById("IN");
+
+
